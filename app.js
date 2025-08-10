@@ -12,5 +12,5 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/', homeRouter);
 
-const PORT = Number(process.env.PORTM);
+const PORT = Number(process.env.PORT);
 app.listen(PORT, console.log("Succesfully Connected to " + PORT));
