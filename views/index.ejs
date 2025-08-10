@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Immortal Storage</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    
+    <body>
+        <nav class="navBar">
+            <form action="/search" method="GET" style="margin: 0; display: flex; align-items: center; gap: 10px;">
+                <button type="submit" class="srchImg"></button>
+                <input type="text" name="searchItem" id="searchItem"/>
+            </form>
+            <form action="/new" method="GET" style="margin-top: 10px;">
+                <button class="btns">New</button>
+            </form>
+        </nav>
+
+        <div class="daddy-storage">
+            <%- include('catagories', {cat: cat}) %>
+            <div class="storage">
+                
+                <%if(items.length > 0) { %>
+                    <% for(let i = 0; items.length > i; i++) { %>
+                        <div class="item">
+                            <h2 style="text-align: center; background-color: white;"><%= items[i].name %></h2>
+                            <h3 style="margin-left: 20px; line-height: 15px;">Catagory: <span style="font-weight: 400;"><%= items[i].catagory %></span></h3>
+                            <h3 style="margin-left: 20px; line-height: 15px;">Quantity: <span style="font-weight: 400;"><%= items[i].quantity %></span></h3>
+                            <p style="margin: 0px 20px 30px 20px; max-height: 65px; min-height: 65px; overflow-y: auto;"><%= items[i].description %>.</p>
+                            <div class="btns-holder">
+                                <form action="/<%= items[i].id %>/delete" method="POST">
+                                    <button class="btns del" onclick="return confirm('Are you sure you want to delete this user?');">Delete</button>
+                                </form>
+                                <div><button class="btns" onclick="window.location.href='/<%= items[i].id %>/update'">Update</button></div>
+                            </div>
+                        </div>
+                    <% } %>
+                <% } %>
+
+            </div>
+        </div>
+    </body>
+</html>

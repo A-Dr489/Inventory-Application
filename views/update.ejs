@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Immortal Storage</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+
+    <body>
+        <div class="daddy-newForm">
+            <form action="/<%= data.id %>/update" method="POST" class="newForm">
+                <h1 style="text-align: center;">Updating an Item</h1>
+                <ul>
+                    <% if(error.length > 0) {%>
+                        <% for(let i = 0; error.length > i; i++) { %>
+                            <li><span style="font-size: 1.2em; font-weight: bold; color: red;"><%= error[i].path%></span>: <%= error[i].msg%></li>
+                        <% } %>
+                    <% }%>
+                </ul>
+                <div style="display: flex; justify-content: space-around; margin-bottom: 30px; flex-wrap: wrap; width: 90%;">
+                    <div>
+                        <label for="name">Name:</label> <br>
+                        <input type="text" name="name" value="<%= data.name %>" class="small-input"/>
+                    </div>
+
+                    <div>
+                        <label for="catagory">Catagory:</label> <br>
+                        <input type="text" name="catagory" value="<%= data.catagory %>" class="small-input"/>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-around; margin-bottom: 30px; flex-wrap: wrap; width: 90%;">
+                    <div>
+                        <label for="des">Description:</label> <br>
+                        <textarea name="des" class="big-input"><%= data.description %></textarea>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; width: 90%; margin-bottom: 50px;">
+                    <div>
+                        <label for="quantity">Quantity:</label> <br>
+                        <input type="number" name="quantity" value="<%= data.quantity %>" class="small-input" style="width: 135px;"/>
+                    </div>
+
+                    <div>
+                        <label for="notes">Notes:</label> <br>
+                        <input type="text" name="notes" value="<%= data.notes %>" class="small-input" style="width: 430px;"/>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 40px;">
+                    <button type="button" class="btns" onclick="window.location.href='/'">Cancle</button>
+                    <button type="submit" class="btns">Update</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

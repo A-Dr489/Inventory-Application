@@ -1,0 +1,11 @@
+<form action="/catagory" method="POST">
+    <select id="catagory" name="catagory">
+        <option value="All">All</option>
+        <% if(cat.length > 0) { %>
+            <% for(let i = 0; cat.length > i; i++) {%>
+                <option value=<%=cat[i].catagory%>><%= cat[i].catagory %></option>
+            <% } %>
+        <% } %>
+    </select>
+    <button type="submit" class="btns ">Submit</button>
+</form>
